@@ -2,12 +2,18 @@
 <templates>
     <t t-extend="FieldBinaryFile">
         <t t-jquery="t[t-call='HiddenInputFile']" t-operation="append">
-            <t t-set="fileupload_accept" t-value="widget.attrs.accept"/>
+            <t t-set="fileupload_accept" t-value="widget.accepted_file_override"/>
         </t>
     </t>
     <t t-extend="HiddenInputFile">
-        <t t-jquery=".o_input_file:last" t-operation="replace">
-            <input t-if="!widget.image_only" type="file" class="o_input_file" name="ufile" t-att-accept="fileupload_accept || '*.*'" t-att="{'multiple': multi_upload ? 'multiple' : null}"/>
+        <t t-jquery=".o_form_binary_form" t-operation="replace">
+            <form class="o_form_binary_form" t-att-target="fileupload_id" method="post" enctype="multipart/form-data" t-att-action="fileupload_action || '/web/binary/upload'">
+                <input type="hidden" name="csrf_token" t-att-value="csrf_token"/>
+                <input type="hidden" name="callback" t-att-value="fileupload_id"/>
+                <input t-if="widget.image_only" type="file" class="o_input_file" name="ufile" t-att-accept="fileupload_accept || 'image/*'"/>
+                <input t-if="!widget.image_only" type="file" class="o_input_file" name="ufile" t-att-accept="fileupload_accept || '*.*'" t-att="{'multiple': multi_upload ? 'multiple' : null}"/>
+                <t t-raw="0"/>
+            </form>
         </t>
     </t>
 </templates>

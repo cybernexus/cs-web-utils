@@ -15,7 +15,11 @@
     'application': False,
     'installable': True,
     'auto_install': False,
-    'depends': ['web'],
-    'data': ['templates/web_base.xml'],
+    'depends': ['base','web'],
+    'data': [
+        'security/ir.model.access.csv',
+        'templates/web_base.xml',
+        'views/binary_field_setting_views.xml'
+    ],
     'qweb': ['static/src/xml/widget_binaryfile.xml']
 }
