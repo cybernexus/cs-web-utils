@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="cs_fields_binary_backend" name="cs_fields_binary assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript"
+                    src="/cs_fields_binary/static/src/js/widget_binaryfile.js"></script>
+        </xpath>
+    </template>
+</odoo>
+
