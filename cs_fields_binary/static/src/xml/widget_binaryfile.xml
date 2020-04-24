@@ -2,7 +2,7 @@
 <templates>
     <t t-extend="FieldBinaryFile">
         <t t-jquery="t[t-call='HiddenInputFile']" t-operation="append">
-            <t t-set="fileupload_accept" t-value="widget.accepted_file_override"/>
+            <t t-set="fileupload_accept" t-value="widget.attrs.accept"/>
         </t>
     </t>
     <t t-extend="HiddenInputFile">
