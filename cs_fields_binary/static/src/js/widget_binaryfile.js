@@ -12,7 +12,6 @@ odoo.define('cs_fields_binary.binaryfile_widget', function (require) {
                     this.max_upload_size = this.attrs.max_upload_size * 1024 * 1024;
                 }
             }
-            console.log(this.max_upload_size)
         }
     });
 });
